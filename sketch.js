@@ -1,19 +1,28 @@
 
+var cnv;
+
+
+function centerCanvas() {
+  var x = (windowWidth - width) / 2;
+  var y = (windowHeight - height) / 2;
+  cnv.position(x, y);
+}
 let posX = 20;
 let camvio= 0;
 function setup() {
-  var cnv = createCanvas(windowWidth, windowHeight);
-  cnv.style('display', 'block');
-  background(255, camvio, 200);
+  cnv = createCanvas(windowWidth, windowHeight);
+  centerCanvas();
+  background(255, 0, 200);
+}
+
+function windowResized() {
+  centerCanvas();
 }
 function draw(){
-	//background(255, camvio, 200);
-	quad(posX, 31, 86, 20, 69, camvio, 30, camvio);
-describe('irregular white quadrilateral with black outline');
-posX = posX + 1;
+	//background(255, mouseY, 200);
+	quad(mouseX, mouseY,mouseY, mouseX, mouseX, mouseY, mouseX, mouseY);
+	//quad(mouseY, mouseX, mouseX, mouseY, mouseX, mouseY, mouseY, mouseX);
 
-if (posX == windowWidth ) {
-	camvio = camvio + 50;
-	posX = 20;
-}
+
+
 }
